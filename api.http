@@ -1,0 +1,33 @@
+GET http://localhost:3000/api/test
+
+###
+# 2. get all routes
+###
+GET http://localhost:3000/routes
+
+###
+# 3. get route by id
+###
+GET http://localhost:3000/routes/1
+
+###
+# 4. create route
+###
+POST http://localhost:3000/routes
+Content-Type: application/json
+
+{
+  "name": "route 1",
+  "source_id": "ChIJUasLOhSPpgARevNCEqmwzbo",
+  "destination_id": "ChIJFaMK2shZzpQRanfJ8jGUn9U"
+}
+
+##
+# places
+##
+
+### Pegar o place_id
+GET http://localhost:3000/places?text=avenida paulista
+
+### Pegar direções entre dois pontos
+GET http://localhost:3000/directions?originId=ChIJUasLOhSPpgARevNCEqmwzbo&destinationId=ChIJFaMK2shZzpQRanfJ8jGUn9U
