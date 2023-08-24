@@ -25,19 +25,19 @@ export class RoutesService {
         source: {
           name: String(createRouteDto.source_id),
           location: {
-            lat: 0,
-            lng: 0,
+            lat: legs.start_location.lat,
+            lng: legs.start_location.lng,
           },
         },
         destination: {
           name: String(createRouteDto.destination_id),
           location: {
-            lat: 0,
-            lng: 0,
+            lat: legs.end_location.lat,
+            lng: legs.end_location.lng,
           },
         },
-        distance: 0,
-        duration: 0,
+        distance: legs.distance.value,
+        duration: legs.duration.value,
         directions: JSON.stringify({
           available_travel_modes,
           geocoded_waypoints,
@@ -51,8 +51,10 @@ export class RoutesService {
     return await this.prismaService.route.findMany();
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} route`;
+  findOne(id: string) {
+    return this.prismaService.route.findUniqueOrThrow({
+      where: { id: id },
+    });
   }
 
   update(id: number, updateRouteDto: UpdateRouteDto) {

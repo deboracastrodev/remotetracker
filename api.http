@@ -8,7 +8,7 @@ GET http://localhost:3000/routes
 ###
 # 3. get route by id
 ###
-GET http://localhost:3000/routes/1
+GET http://localhost:3000/routes/64e79a6c7e35362ed995a062
 
 ###
 # 4. create route
@@ -17,9 +17,9 @@ POST http://localhost:3000/routes
 Content-Type: application/json
 
 {
-  "name": "route 1",
+  "name": "route 2",
   "source_id": "ChIJUasLOhSPpgARevNCEqmwzbo",
-  "destination_id": "ChIJFaMK2shZzpQRanfJ8jGUn9U"
+  "destination_id": "ChIJD9TtBN-RpgARZxOFGySjO4Q"
 }
 
 ##
@@ -27,7 +27,7 @@ Content-Type: application/json
 ##
 
 ### Pegar o place_id
-GET http://localhost:3000/places?text=avenida paulista
+GET http://localhost:3000/places?text=rua alice marques, 260
 
 ### Pegar direções entre dois pontos
 GET http://localhost:3000/directions?originId=ChIJUasLOhSPpgARevNCEqmwzbo&destinationId=ChIJFaMK2shZzpQRanfJ8jGUn9U
